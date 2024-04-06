@@ -1,0 +1,84 @@
+---
+import type{Post} from '../pages/types/post'
+import PostCard from '../components/PostCard.astro';
+const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+const posts = await res.json();
+const { post } = Astro.props;
+---
+<html>
+<head>
+  <title>UN TITULO</title>
+
+
+
+   
+</head>
+<html>
+<head>
+  <title>Mi Blog en Astro</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido a mi Blog</h1>
+    <div>
+      {posts.map(post => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </div>
+  </div>
+  <footer>
+    © 2024 Mi Blog en Astro. 
+  </footer>
+</body>
+</html>
+</html>
+
+
+<style>
+
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+   
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background-color: rgba(0, 255, 255, 0.097);
+    }
+
+   
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #150808;
+      }
+
+      div {
+  
+      overflow-y: auto; 
+      max-height: 700px; 
+      }
+      div::-webkit-scrollbar {
+    display: none; 
+    }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-radius: 0 0 10px 10px;
+        margin-top: 20px;
+      }
+
+
+
+
+</style>
